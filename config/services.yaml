@@ -31,5 +31,3 @@ services:
     App\Command\loadCsv:
         tags:
             - { name: 'console.command', command: 'app:loadCsv' }
-    App\Service\:
-      resource: '../src/Service'
