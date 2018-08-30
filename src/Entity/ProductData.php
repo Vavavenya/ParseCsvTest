@@ -52,14 +52,9 @@ class ProductData
     private $Cost_in_GBP;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", length=10, nullable=true,options={"unsigned":true, "default":"0"})
      */
-    private $Discontinued;
-
-    /**
-     * @ORM\Column(type="string", length=10, nullable=true)
-     */
-    private $stock;
+    private $stock="0";
 
     public function getId(): ?int
     {
@@ -170,18 +165,6 @@ class ProductData
     public function setCostInGBP(?string $Cost_in_GBP): self
     {
         $this->Cost_in_GBP = $Cost_in_GBP;
-
-        return $this;
-    }
-
-    public function getDiscontinued(): ?\DateTimeInterface
-    {
-        return $this->Discontinued;
-    }
-
-    public function setDiscontinued(?\DateTimeInterface $Discontinued): self
-    {
-        $this->Discontinued = $Discontinued;
 
         return $this;
     }

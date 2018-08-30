@@ -74,6 +74,7 @@ class loadCsv extends Command
           ->setStrProductName($record["Product Name"])
           ->setStrProductDesc($record["Product Description"])
           ->setStrProductCode($record["Product Code"])
+          ->setDtmAdded($nowdate)
           ->setStock($record["Stock"])
           ->setCostInGBP($record["Cost in GBP"])
           ->setDtmDescontinued($record["Discontinued"] == "yes"?$nowdate:null)
