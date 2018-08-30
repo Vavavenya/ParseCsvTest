@@ -56,6 +56,11 @@ class ProductData
      */
     private $Discontinued;
 
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $stock;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -177,6 +182,18 @@ class ProductData
     public function setDiscontinued(?\DateTimeInterface $Discontinued): self
     {
         $this->Discontinued = $Discontinued;
+
+        return $this;
+    }
+
+    public function getStock(): ?string
+    {
+        return $this->stock;
+    }
+
+    public function setStock(?string $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }
