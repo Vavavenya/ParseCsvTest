@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ProductDataRepository")
  */
 class ProductData
 {
@@ -14,22 +14,22 @@ class ProductData
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer",length=255)
      */
-    private $intProductDataId;
+    private $productDataId;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $strProductName;
+    private $productName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $strProductDesc;
+    private $productDescription;
 
     /**
      * @ORM\Column(type="string", length=10)
      */
-    private $strProductCode;
+    private $productCode;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -39,132 +39,121 @@ class ProductData
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $dtmDescontinued;
+    private $dateDiscontinued;
 
     /**
-     * @ORM\Column(type="datetime")
+     @ORM\Column(type="datetime", nullable=false)
+   * @ORM\Version
      */
-    private $stmTimestamp;
+    private $timestamp;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $Cost_in_GBP;
+    private $costGBP;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true,options={"unsigned":true, "default":"0"})
      */
     private $stock="0";
 
-    public function getId(): ?int
+    public function getProductDataId(): ?int
     {
-        return $this->id;
+        return $this->productDataId;
     }
 
-    public function getIntProductData(): ?int
+    public function getProductData(): ?int
     {
-        return $this->intProductData;
+        return $this->productData;
     }
 
-    public function setIntProductData(int $intProductData): self
+    public function setproductData(int $productData): self
     {
-        $this->intProductData = $intProductData;
+        $this->productData = $productData;
 
         return $this;
     }
 
-    public function getIntProductDataId(): ?int
+    public function getProductName(): ?string
     {
-        return $this->intProductDataId;
+        return $this->productName;
     }
 
-    public function setIntProductDataId(int $intProductDataId): self
+    public function setProductName(string $productName): self
     {
-        $this->intProductDataId = $intProductDataId;
+        $this->productName = $productName;
 
         return $this;
     }
 
-    public function getStrProductName(): ?string
+    public function getProductDescription(): ?string
     {
-        return $this->strProductName;
+        return $this->productDescription;
     }
 
-    public function setStrProductName(string $strProductName): self
+    public function setProductDescription(string $productDescription): self
     {
-        $this->strProductName = $strProductName;
+        $this->productDescription = $productDescription;
 
         return $this;
     }
 
-    public function getStrProductDesc(): ?string
+    public function getProductCode(): ?string
     {
-        return $this->strProductDesc;
+        return $this->productCode;
     }
 
-    public function setStrProductDesc(string $strProductDesc): self
+    public function setProductCode(string $productCode): self
     {
-        $this->strProductDesc = $strProductDesc;
+        $this->productCode = $productCode;
 
         return $this;
     }
 
-    public function getStrProductCode(): ?string
+    public function getDateAdded(): ?\DateTimeInterface
     {
-        return $this->strProductCode;
+        return $this->dateAdded;
     }
 
-    public function setStrProductCode(string $strProductCode): self
+    public function setDateAdded(?\DateTimeInterface $dateAdded): self
     {
-        $this->strProductCode = $strProductCode;
+        $this->dateAdded = $dateAdded;
 
         return $this;
     }
 
-    public function getDtmAdded(): ?\DateTimeInterface
+    public function getDateDiscontinued(): ?\DateTimeInterface
     {
-        return $this->dtmAdded;
+        return $this->dateDiscontinued;
     }
 
-    public function setDtmAdded(?\DateTimeInterface $dtmAdded): self
+    public function setDateDiscontinued(?\DateTimeInterface $dateDiscontinued): self
     {
-        $this->dtmAdded = $dtmAdded;
+        $this->dateDiscontinued = $dateDiscontinued;
 
         return $this;
     }
 
-    public function getDtmDescontinued(): ?\DateTimeInterface
+    public function getTimestamp(): ?\DateTimeInterface
     {
-        return $this->dtmDescontinued;
+        return $this->timestamp;
     }
 
-    public function setDtmDescontinued(?\DateTimeInterface $dtmDescontinued): self
+    public function setTimestamp(\DateTimeInterface $timestamp): self
     {
-        $this->dtmDescontinued = $dtmDescontinued;
+        $this->timestamp = $timestamp;
 
         return $this;
     }
 
-    public function getStmTimestamp(): ?\DateTimeInterface
+    public function getCostGBP(): ?string
     {
-        return $this->stmTimestamp;
+        return $this->costGBP;
     }
 
-    public function setStmTimestamp(\DateTimeInterface $stmTimestamp): self
+    public function setCostGBP(?string $costGBP): self
     {
-        $this->stmTimestamp = $stmTimestamp;
-
-        return $this;
-    }
-
-    public function getCostInGBP(): ?string
-    {
-        return $this->Cost_in_GBP;
-    }
-
-    public function setCostInGBP(?string $Cost_in_GBP): self
-    {
-        $this->Cost_in_GBP = $Cost_in_GBP;
+        $this->costGBP = $costGBP;
 
         return $this;
     }
