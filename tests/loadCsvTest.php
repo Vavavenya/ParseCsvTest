@@ -25,7 +25,7 @@ class loadCsvTest extends TestCase
       $CsvClass = new loadCsv("normal","");
 
       $file = __DIR__ . '\teststock.csv';
-      var_dump($file);
+
       $results = $CsvClass->parseCsvFile($file);
       foreach ($results as $result) {   // it's bad solution
       	$this->assertEquals($example, $result);
